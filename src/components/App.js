@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import ShoppingList from "./ShoppingList";
 import itemData from "../data/items";
 
 function App() {
-// State variable for dark mode
-const [darkMode, setDarkMode] = useState(false);
+  // State variable for dark mode
+  const [darkMode, setDarkMode] = useState(false);
 
-// Event handler for toggling dark mode
-const handleDarkModeToggle = () => {
-  setDarkMode((prevDarkMode) => !prevDarkMode);
-};
-  //Use dark mode state variable in order to determine the app class
-  const appClass = false ? "App dark" : "App light"
+  // Event handler for toggling dark mode
+  const handleDarkModeToggle = () => {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  };
+
+  // Use dark mode state variable in order to determine the app class
+  const appClass = darkMode ? "App dark" : "App light";
 
   return (
     <div className={appClass}>
@@ -25,6 +26,7 @@ const handleDarkModeToggle = () => {
       <ShoppingList items={itemData} />
     </div>
   );
-} 
+}
 
 export default App;
+
